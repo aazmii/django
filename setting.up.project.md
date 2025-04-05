@@ -1,4 +1,4 @@
-## Create a folder and the in vs code. Run following commands to create project 
+## Create a virtual environment for project
 ```
 pip install pipenv
 ```
@@ -14,43 +14,44 @@ pipenv install django
 ```
 pip freeze
 ```
-## To run django project 
+## Create a project within this folder
 ```
 django-admin startproject <project_name> 
 ```
+## Creating 'App' 
+Project is consisted with one or multiple module called 'app', which servs different purpose. 
+change the root directory first 
+```
+cd <project_name>
+```
+to create an app 
+```
+python manage.py startapp <app_name>
+```
+this will create <app_name> into <my_project>. now run the servver - 
+```
+python manage.py runserver
+```
+## Migration
+make sure manage.py exists on root directory. 
+to create migration, run  
+```
+python manage.py makemigrations
+```
+apply generated migration to the db : 
+```
+python manage.py migrate
+```
+## Admin
+```
+python manage.py createsuperuser
+```
+## note: 
+on root folder- <br> 
+Pipfile, Pipfile.lock -> environment is set <br> 
+manage.py, another folder same name as root folder -> a  project <br> 
+admin.py,model.py, views.py -> an app
+
 # Django Project Files Overview
-
-### 1. `__init__.py`
-- **Purpose**: Marks the directory as a Python package.
-- **Functionality**: Enables Python to recognize the directory as a module, allowing imports across the project.
-
-### 2. `asgi.py`
-- **Purpose**: Configures the **ASGI** (Asynchronous Server Gateway Interface) settings for the project.
-- **Functionality**:
-  - Sets up the environment for asynchronous handling of requests.
-  - Acts as the entry point for ASGI-compatible web servers.
-
-### 3. `settings.py`
-- **Purpose**: The core configuration file of the Django project.
-- **Functionality**:
-  - Contains project settings such as database configurations, installed apps, middleware, templates, and static files.
-  - Used to control project behavior and environment-specific customizations.
-
-### 4. `urls.py`
-- **Purpose**: Defines URL patterns for the project.
-- **Functionality**:
-  - Maps URLs to their respective views or endpoints.
-  - Serves as a central routing mechanism for the application.
-
-### 5. `wsgi.py`
-- **Purpose**: Configures the **WSGI** (Web Server Gateway Interface) settings for the project.
-- **Functionality**:
-  - Acts as the entry point for WSGI-compatible web servers like Gunicorn or uWSGI.
-  - Helps in deploying the Django project in a production environment.
-
-### 6. `manage.py`
-- **Purpose**: A command-line utility for administrative tasks.
-- **Functionality**:
-  - Provides commands to manage the Django application, such as starting a development server, migrating databases, or creating new apps.
-  - Acts as an interface to `django-admin`.
+Follow [this](https://medium.com/django-unleashed/django-project-structure-a-comprehensive-guide-4b2ddbf2b6b8) link
 
