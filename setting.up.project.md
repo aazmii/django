@@ -1,4 +1,4 @@
-## Create a virtual environment for project
+## Create virtual environment at given directory
 ```
 pip install pipenv
 ```
